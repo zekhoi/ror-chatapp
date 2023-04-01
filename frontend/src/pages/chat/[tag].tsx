@@ -41,7 +41,7 @@ export default function Chat({ tag }: ChatProps) {
   }
 
   return (
-    <PrivateLayout title="Lets Chat!">
+    <PrivateLayout title={`Lets Chat in ${tag}!`}>
       <div className="flex flex-col items-center w-full h-screen min-h-screen py-3">
         <Container>
           <Navbar />

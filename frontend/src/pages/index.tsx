@@ -12,7 +12,7 @@ export default function Home() {
           <Navbar />
           <main className="grid content-center w-full h-full grid-cols-1 gap-3 md:grid-cols-2">
             <div className="flex flex-col gap-3">
-              <h1 className="max-w-xl text-6xl font-extrabold leading-none tracking-tight text-center lg:text-left">
+              <h1 className="max-w-xl text-6xl font-extrabold leading-none tracking-tight text-left">
                 <span className="text-primary-500">Connect</span> with anyone,{" "}
                 <span className="text-primary-500">anywhere</span> with ease.
               </h1>
