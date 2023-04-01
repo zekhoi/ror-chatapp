@@ -45,6 +45,7 @@ const useWebSocket = (username: string, tag: string, isLoading: boolean) => {
       ) {
         return;
       }
+      console.log("Message from WebSocket server: ", message);
       setMessages((messages) => [...messages, message]);
     };
 
