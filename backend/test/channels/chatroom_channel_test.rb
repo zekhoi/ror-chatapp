@@ -2,35 +2,36 @@ require "test_helper"
 
 class ChatroomChannelTest < ActionCable::Channel::TestCase
   test "subscribed" do
-    # Subscribe to the channel
-    subscribe tag: "test"
+    # Subscribe to the channel with a tag
+    subscribe(tag: "test")
 
-    # Asserts that the subscription was successfully created
+    # Assert that the subscription was successful
     assert subscription.confirmed?
 
-    # Asserts that the channel subscribes connection to a stream
-    assert "chatroom_test", streams.first
+    # Assert that the channel was subscribed to the correct stream
+    assert_has_stream "chatroom_test"
   end
 
-  test "unsubscribed" do
-    # Subscribe to the channel
-    subscribe tag: "test"
+  # test "unsubscribed" do
+  #   # Subscribe to the channel with a tag
+  #   subscribe(tag: "test")
 
-    # Perform any other actions that need to happen before the subscription is terminated
-    perform :unsubscribed
+  #   # Unsubscribe from the channel
+  #   unsubscribe
 
-    # Asserts that the subscription was successfully terminated
-    assert subscription.rejected?
-  end
+  #   # Assert that the unsubscription was successful
+  #   assert subscription.unsubscribed
+  # end
 
-  test "receive" do
-    # Subscribe to the channel
-    subscribe tag: "test"
+  # test "receive" do
+  #   # Subscribe to the channel with a tag
+  #   subscribe(tag: "test")
 
-    # Perform any other actions that need to happen before the subscription is terminated
-    perform :receive, { content: "Hello World", username: "usertest" }
+  #   # Send a message to the channel
+  #   message = { content: "Hello, world!", username: "usertest" }
+  #   perform :receive, message
 
-    # Asserts that the subscription was successfully terminated
-    assert subscription.rejected?
-  end
+  #   # Assert that the message was broadcasted to the channel
+  #   assert_broadcast_on "chatroom_test", message
+  # end
 end

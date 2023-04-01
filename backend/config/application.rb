@@ -23,5 +23,12 @@ module Backend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Skip ActiveRecord during tests
+    config.active_record.migration_error = :page_load
+    config.generators.system_tests = nil
+    config.active_job.queue_adapter = :test
+    config.active_storage.service = :test
+    config.middleware.delete ActiveRecord::Migration::CheckPending
   end
 end

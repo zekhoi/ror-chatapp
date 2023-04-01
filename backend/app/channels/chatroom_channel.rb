@@ -13,6 +13,7 @@ class ChatroomChannel < ApplicationCable::Channel
   def unsubscribed
     puts "Unsubscribed from chatroom_#{params[:tag]}"
     # Any cleanup needed when channel is unsubscribed
+    stop_all_streams
     # notification = { content: "#{params[:username]} has left the chat", username: "ChatAppBOT" }
     # broadcast(notification)
   end
