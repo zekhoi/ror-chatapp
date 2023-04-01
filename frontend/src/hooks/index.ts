@@ -1,5 +1,4 @@
 import useAuth from "./useAuth";
-import useMessage from "./useMessage";
-import useSocket from "./useSocket";
+import useWebSocket from "./useWebSocket";
 
-export { useAuth, useMessage, useSocket };
+export { useAuth, useWebSocket };

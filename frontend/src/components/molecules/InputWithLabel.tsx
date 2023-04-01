@@ -11,7 +11,10 @@ export default function InputWithLabel({
 }: InputWithLabelProps) {
   return (
     <div className="w-full space-y-2">
-      <label htmlFor={labelName} className="block text-lg text-gray-800">
+      <label
+        htmlFor={labelName}
+        className="block text-sm font-medium text-gray-800"
+      >
         {labelName}
       </label>
       <Input id={labelName} {...rest} />

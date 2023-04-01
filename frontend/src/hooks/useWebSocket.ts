@@ -11,12 +11,13 @@ type Message = {
 };
 
 const useWebSocket = (username: string, tag: string, isLoading: boolean) => {
+  const [error, setError] = useState<boolean>(false);
   const [webSocket, setWebSocket] = useState<WebSocket | null>(null);
   const [messages, setMessages] = useState<Data[]>([]);
   const channel = {
     channel: "ChatroomChannel",
     tag: tag,
-    // username: username,
+    username: username,
   };
 
   useEffect(() => {
@@ -53,6 +54,7 @@ const useWebSocket = (username: string, tag: string, isLoading: boolean) => {
 
     socket.onerror = (error) => {
       console.log("WebSocket error: ", error);
+      setError(true);
     };
 
     setWebSocket(socket);
@@ -60,7 +62,7 @@ const useWebSocket = (username: string, tag: string, isLoading: boolean) => {
     return () => {
       socket.close();
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading, tag, username]);
 
   const sendMessage = (message: string) => {
@@ -76,7 +78,7 @@ const useWebSocket = (username: string, tag: string, isLoading: boolean) => {
     }
   };
 
-  return { messages, sendMessage };
+  return { messages, error, sendMessage };
 };
 
 export default useWebSocket;

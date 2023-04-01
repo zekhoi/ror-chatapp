@@ -11,7 +11,7 @@ import React from "react";
 export default function Login() {
   const { isLoading, user, login } = useAuth();
   const [username, setUsername] = useState(user || generateUsername() || "");
-  const [channelTag, setChannelTag] = useState("test");
+  const [channelTag, setChannelTag] = useState("simpul");
 
   const router = useRouter();
 
@@ -36,8 +36,8 @@ export default function Login() {
             }
           />
           <InputWithLabel
-            labelName="Channel Tag"
-            placeholder={"channelTag"}
+            labelName="Channel"
+            placeholder={"channel"}
             value={channelTag}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setChannelTag(e.target.value)

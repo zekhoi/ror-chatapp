@@ -19,7 +19,6 @@ export default function Public({ title, children }: PublicLayoutProps) {
     router.push(`/chat/${tag}`);
     return <LoadingScreen />;
   }
-  const fullTitle = `ChatRoom - ${title}`;
 
-  return <DefaultLayout title={fullTitle}>{children}</DefaultLayout>;
+  return <DefaultLayout title={title}>{children}</DefaultLayout>;
 }

@@ -7,7 +7,7 @@ type DefaultLayoutProps = {
 };
 
 export default function DefaultLayout({ title, children }: DefaultLayoutProps) {
-  const fullTitle = `ChatRoom - ${title}`;
+  const fullTitle = `ChatHub - ${title}`;
 
   return (
     <>

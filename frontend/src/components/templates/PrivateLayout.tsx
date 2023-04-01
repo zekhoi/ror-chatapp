@@ -19,7 +19,6 @@ export default function PrivateLayout({ title, children }: PrivateLayoutProps) {
     router.push("/login");
     return <LoadingScreen />;
   }
-  const fullTitle = `ChatRoom - ${title}`;
 
-  return <DefaultLayout title={fullTitle}>{children}</DefaultLayout>;
+  return <DefaultLayout title={title}>{children}</DefaultLayout>;
 }
