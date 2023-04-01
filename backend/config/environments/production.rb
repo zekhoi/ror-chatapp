@@ -36,7 +36,7 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain.
   config.action_cable.mount_path = "/cable"
   config.action_cable.url = ENV["CABLE_URL"]
-  config.action_cable.allowed_request_origins = ["*"]
+  config.action_cable.allowed_request_origins = ["https://ror-chatapp.vercel.app", "http://localhost:3000"]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
