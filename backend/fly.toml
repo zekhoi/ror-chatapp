@@ -1,6 +1,6 @@
 # fly.toml file generated for aged-voice-6759 on 2023-04-01T07:06:46+08:00
 
-app = "aged-voice-6759"
+app = "ror-chatapp"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "sin"
