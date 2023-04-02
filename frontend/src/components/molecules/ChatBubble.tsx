@@ -17,7 +17,9 @@ export default function ChatBubble({
   return (
     <div className={clsx("flex flex-row items-center gap-3", position)}>
       <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 rounded-full bg-primary-500">
-        <span className="font-bold text-white">{username[0]}</span>
+        <span className="font-bold text-white">
+          {username[0].toUpperCase()}
+        </span>
       </div>
       <div className="flex flex-col space-y-1">
         <span className={clsx("text-xs", isSender && "ml-auto")}>
