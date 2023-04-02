@@ -8,11 +8,13 @@ Tidak ada data yang disimpan di database karena menggunakan Redis dan user tidak
 
 Redis menyimpan pada memori sehingga data akan hilang jika server dimatikan.
 
+Note\*: Terdapat masalah pada production yaitu proses streaming channel tidak sepenuhnya berjalan (hanya berjalan saat dipakai early after deploy atau beberapa kali dipakai). Saat ini masih mencoba untuk memperbaikinya.
+
 # Live Demo
 
 - [Frontend](https://ror-chatapp.vercel.app/) deployed to Vercel
 - [Backend](https://ror-chatapp.fly.dev/) deployed to Fly.io
-- [Redis](https://ror-chatapp.fly.dev/redis) deployed to upstash via Fly.io
+- [Redis](#) deployed to upstash via Fly.io
 
 # Tech Stack
 
