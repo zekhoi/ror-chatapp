@@ -6,16 +6,16 @@ class ChatroomChannel < ApplicationCable::Channel
     # stream_for chat_room
     stream_from "chatroom_#{params[:tag]}"
 
-    notification = { content: "#{params[:username]} has joined the chat", username: "ChatHubBOT" }
-    broadcast(notification)
+    # notification = { content: "#{params[:username]} has joined the chat", username: "ChatHubBOT" }
+    # broadcast(notification)
   end
 
   def unsubscribed
     puts "#{params[:username]} unsubscribed from chatroom_#{params[:tag]}"
     # Any cleanup needed when channel is unsubscribed
     # stop_all_streams
-    notification = { content: "#{params[:username]} has left the chat", username: "ChatHubBOT" }
-    broadcast(notification)
+    # notification = { content: "#{params[:username]} has left the chat", username: "ChatHubBOT" }
+    # broadcast(notification)
   end
 
   def receive(data)

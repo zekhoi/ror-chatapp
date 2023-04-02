@@ -17,7 +17,7 @@ const useWebSocket = (username: string, tag: string, isLoading: boolean) => {
   const channel = {
     channel: "ChatroomChannel",
     tag: tag,
-    username: username,
+    // username: username,
   };
 
   useEffect(() => {
