@@ -14,7 +14,7 @@ class ChatroomChannel < ApplicationCable::Channel
     # chat_room = Chatroom.find_or_create_by(tag: params[:tag])
     # Any cleanup needed when channel is unsubscribed
     # stop_all_streams
-    stop_stream_from "chatroom_#{params[:tag]}"
+    # stop_stream_from "chatroom_#{params[:tag]}"
     notification = { content: "#{params[:username]} has left the chat", username: "ChatHubBOT" }
     broadcast(notification)
   end
