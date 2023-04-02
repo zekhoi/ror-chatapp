@@ -8,7 +8,7 @@ Tidak ada data yang disimpan di database karena menggunakan Redis dan user tidak
 
 Redis menyimpan pada memori sehingga data akan hilang jika server dimatikan.
 
-Note\*: Terdapat masalah pada production yaitu proses streaming channel tidak sepenuhnya berjalan (hanya berjalan saat dipakai early after deploy atau beberapa kali dipakai). Saat ini masih mencoba untuk memperbaikinya.
+Note\*: ~~Terdapat masalah pada production yaitu proses streaming channel tidak sepenuhnya berjalan (hanya berjalan saat dipakai early after deploy atau beberapa kali dipakai). Saat ini masih mencoba untuk memperbaikinya.~~
 
 # Live Demo
 
