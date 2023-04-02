@@ -29,6 +29,6 @@ module Backend
     config.generators.system_tests = nil
     config.active_job.queue_adapter = :test
     config.active_storage.service = :test
-    # config.middleware.delete ActiveRecord::Migration::CheckPending
+    config.middleware.delete ActiveRecord::Migration::CheckPending
   end
 end
