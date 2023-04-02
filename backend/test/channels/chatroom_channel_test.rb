@@ -2,14 +2,13 @@ require "test_helper"
 
 class ChatroomChannelTest < ActionCable::Channel::TestCase
   test "subscribed" do
-    
     # Subscribe to the channel with a tag
     subscribe(tag: "test")
 
-    chat_room = Chatroom.find_or_create_by(tag: "test")
-
-    # Assert that the subscription was successfully created
+    # Assert that the subscription was successful
     assert subscription.confirmed?
-    assert_equal chat_room, subscription.streams.first
+
+    # Assert that the channel was subscribed to the correct stream
+    assert_has_stream "chatroom_test"
   end
 end
