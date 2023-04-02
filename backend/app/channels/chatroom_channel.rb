@@ -19,7 +19,7 @@ class ChatroomChannel < ApplicationCable::Channel
   end
 
   def receive(data)
-    puts "Received data: #{data}"
+    # puts "Received data: #{data}"
     # user_id = User.find_by(username: data['username']).id
     # chatroom_id = Chatroom.find_by(tag: params[:tag]).id
     # message = Message.create(content: data['content'], chatrooms_id: chatroom_id, users_id: user_id)
