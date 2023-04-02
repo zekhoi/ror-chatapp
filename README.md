@@ -22,4 +22,4 @@ Note\*: Terdapat masalah pada production yaitu proses streaming channel tidak se
 - Tailwindcss
 - Ruby on Rails
 - Redis
-- PostgreSQL (Not used, only created for exploring)
+- PostgreSQL (only created for exploring purpose)

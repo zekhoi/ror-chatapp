@@ -1,39 +1,30 @@
 class ChatroomChannel < ApplicationCable::Channel
   def subscribed
-    puts "#{params[:username]} subscribed to chatroom_#{params[:tag]}"
     # find or create
-    # chat_room = Chatroom.find_or_create_by(tag: params[:tag])
-    # stream_for chat_room
-    stream_from "chatroom_#{params[:tag]}"
-
-    # notification = { content: "#{params[:username]} has joined the chat", username: "ChatHubBOT" }
-    # broadcast(notification)
+    chat_room = Chatroom.find_or_create_by(tag: params[:tag])
+    stream_for chat_room
+    puts "#{params[:username]} subscribed to chatroom_#{chat_room}"
+    # stream_from "chatroom_#{params[:tag]}"
+    notification = { content: "#{params[:username]} has joined the chat", username: "ChatHubBOT" }
+    broadcast(notification)
   end
 
   def unsubscribed
-    puts "#{params[:username]} unsubscribed from chatroom_#{params[:tag]}"
+    chat_room = Chatroom.find_or_create_by(tag: params[:tag])
+    puts "#{params[:username]} unsubscribed from chatroom_#{chat_room}"
     # Any cleanup needed when channel is unsubscribed
     # stop_all_streams
-    # notification = { content: "#{params[:username]} has left the chat", username: "ChatHubBOT" }
-    # broadcast(notification)
+    notification = { content: "#{params[:username]} has left the chat", username: "ChatHubBOT" }
+    broadcast(notification)
   end
 
   def receive(data)
-    # puts "Received data: #{data}"
-    # user_id = User.find_by(username: data['username']).id
-    # chatroom_id = Chatroom.find_by(tag: params[:tag]).id
-    # message = Message.create(content: data['content'], chatrooms_id: chatroom_id, users_id: user_id)
-    # if message.valid?
-    #   message.save
-    # else
-    #   puts "Error saving message: #{message.errors.full_messages.to_sentence}"
-    # end
     broadcast(data)
   end
 
   def broadcast(data)
-    # ActionCable.server.broadcast("chatroom_#{params[:tag]}", data)
-    ActionCable.server.broadcast("chatroom_#{params[:tag]}", data)
+    chat_room = Chatroom.find_or_create_by(tag: params[:tag])
+    ChatroomChannel.broadcast_to(chat_room, data)
   end
 
   def get_chatroom(tag)

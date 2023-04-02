@@ -17,7 +17,7 @@ const useWebSocket = (username: string, tag: string, isLoading: boolean) => {
   const channel = {
     channel: "ChatroomChannel",
     tag: tag,
-    // username: username,
+    username: username,
   };
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const useWebSocket = (username: string, tag: string, isLoading: boolean) => {
     );
 
     socket.onopen = () => {
-      // console.log("Connected to WebSocket server");
+      console.log("Connected to WebSocket server");
       socket.send(
         JSON.stringify({
           command: "subscribe",
@@ -50,11 +50,11 @@ const useWebSocket = (username: string, tag: string, isLoading: boolean) => {
     };
 
     socket.onclose = () => {
-      // console.log("Disconnected from WebSocket server");
+      console.log("Disconnected from WebSocket server");
     };
 
-    socket.onerror = () => {
-      // console.log("WebSocket error: ", error);
+    socket.onerror = (error) => {
+      console.log("WebSocket error: ", error);
       setError(true);
     };
 
